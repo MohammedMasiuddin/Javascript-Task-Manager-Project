@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="webapp">
+        <div id="div">
+            <label for="emailLogin">Email</label>
+            <input type="email" name="emailLogin" id="emailInput">
+            <label for="password">Password</label>
+            <input type="email" name="password" id="passwordInput">
+            <div id="toggle">
+                <span>Admin: </span><label class="switch">
+                    <input type="checkbox" checked id="toggleswitch">
+                    <span class="slider round"></span>
+                </label>
+
+            </div>
+            <button id="loginBtn">Login</button>
+        </div>
+       
+    </div>
+    <div id="webappDas" >
+        <div id="adminpanel">
+            <h1>Admin Panel</h1>
+            <button id="createTask">Create Task</button>
+            <button id="createTask">Back</button>
+            
+            <div id="taskCreate">
+                <label for="taskid">Task Id</label>
+                <input type="text" name="taskid" id="taskid">
+                <label for="taskName">Task Name</label>
+                <input type="text" name="taskName" id="taskNameid">
+                <label for="taskDes">Task Description</label>
+                <textarea class="input" size="500" name="taskDes" id="taskDescription"></textarea>
+                <label for="taskName">Start Date</label>
+                <input type="date" name="taskName" id="taskNameid">
+                <label for="taskName">End Date</label>
+                <input type="date" name="taskName" id="taskNameid">
+
+                <button >Create Task</button>
+            </div>
+            
+            <div  style="margin-top: 50px;"">
+                <table>
+                    <thead>
+                        <th>Task ID</th>
+                        <th>Task Name</th>
+                        <th>Task Description</th>
+                        <th>Task start date</th>
+                        <th>Task End date</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Task1</td>
+                            <td> Description</td>
+                            <td>08 june </td>
+                            <td>10 july</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js'
+
+
+        // Add Firebase products that you want to use
+        import  {getAuth,signInWithEmailAndPassword}  from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js'
+        // import { firestore } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js'
+
+        const firebaseConfig = {
+            // ...
+
+
+            apiKey: "AIzaSyDKBJpKaA6A9CnKaqt5f91O8rJalQooofg",
+            authDomain: "jstaskmanager.firebaseapp.com",
+            projectId: "jstaskmanager",
+            storageBucket: "jstaskmanager.appspot.com",
+            messagingSenderId: "103834274996",
+            appId: "1:103834274996:web:12771f2555b2386f7fdbe1"
+
+
+
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        window.onload = function () { 
+            window._firebase = {
+                app : app,
+                auth : auth,
+                signInWithEmailAndPassword: signInWithEmailAndPassword
+            }
+         }
+    </script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

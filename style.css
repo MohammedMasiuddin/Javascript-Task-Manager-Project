@@ -1,0 +1,173 @@
+body{
+    padding: 0px;
+    margin:0px;
+}
+
+#webapp{
+    width:100vw; 
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#div{
+    min-width: 500px;;
+    min-height: 500px;
+    background-color:rgb(121, 170, 213);
+    border-radius: 10px;
+    /* text-align: center; */
+
+    box-sizing: border-box;
+    display: flex;
+    font: 1.5rem sans-serif;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: center;
+}
+
+#div input{
+    margin-bottom: 40px;
+}
+
+button{
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background-color: chocolate;
+    border: 1px solid #ccc;
+}
+
+button:hover{
+    transform: scale(1.05);
+    border: 1px solid #000;
+    font-size: 1.1rem ;
+
+}
+
+input{
+    padding: 1rem;
+    border-radius: .75rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 30px;
+
+}
+
+.input{
+  padding: 1rem;
+  border-radius: .75rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 30px;
+
+}
+#taskDescription{
+  height: 300px;
+}
+
+#toggle{
+    margin-bottom: 20px ;
+}
+
+/* dashboard panel */
+
+#webappDas{
+  display: block;
+}
+
+#adminpanel{
+  display: flex;
+  flex-direction: column;
+
+}
+
+#adminpanel h1{
+  border-bottom: 1px solid black;
+  margin: unset;
+  padding: 1rem 0px;
+}
+
+
+
+#webappDas button{
+  align-self: flex-end;
+
+}
+
+
+/* taskCreate */
+
+#taskCreate{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  font-size: 1.5rem;
+}
+
+
+
+/* switch toggle code used from internet */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+
