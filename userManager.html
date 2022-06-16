@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="webappDas" >
+        <div id="adminpanel">
+            <h1>User Panel</h1>
+            </div>
+            
+            <div  style="margin-top: 50px;"">
+                <table id="userTasks">
+                    <thead>
+                        <th>Task ID</th>
+                        <th>Task Name</th>
+                        <th>Task Description</th>
+                        <th>Task start date</th>
+                        <th>Task End date</th>
+                        <th>Hourly Rate</th>
+                        <th>Total hours</th>
+                        <th>Status</th>
+                        <th>Hours Worked</th>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td>1</td>
+                            <td>Task1</td>
+                            <td> Description</td>
+                            <td>08 june </td>
+                            <td>10 july</td>
+                            <td>1</td>
+                            <td>Task1</td>
+                            <td> Description</td>
+                            <td>08 june </td>
+                        </tr> -->
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var tasksArr = [];
+
+        setDataInTable();
+
+        function setDataInTable(){
+            let tbl = document.getElementById("userTasks");
+                for (let index = 0; index < 3; index++) {
+                    // const element = arr[index];
+                    let row = tbl.insertRow(-1);
+                    
+                    for (let colIndex = 0; colIndex < 9; colIndex++) {
+                        var cell = row.insertCell(-1);
+                        switch (colIndex) {
+                            case 0:
+                                cell.innerHTML = "1";
+                                break;
+                            case 1:
+                                cell.innerHTML = "2";
+                                break;
+                            case 2:
+                                cell.innerHTML = "3";
+                                break;
+                            case 3:
+                                cell.innerHTML = "4";
+                                break;
+                            case 4:
+                                cell.innerHTML = "5";
+                                break;
+                            case 5:
+                                cell.innerHTML = "6";
+                                break;
+                            case 6:
+                                cell.innerHTML = "7";
+                                break;
+                            case 7:
+
+                                var checkbox = document.createElement('input');
+                                checkbox.type = "checkbox";
+                                checkbox.name = "name";
+                                checkbox.value = "value";
+                                checkbox.id = "id";
+                                cell.appendChild(checkbox);
+                                break;
+                            case 8:
+                                var txtArea = document.createElement('input');
+                                txtArea.type = "textarea";
+                                txtArea.name = "hrsWorked";
+                                txtArea.id = "id";
+                                cell.appendChild(txtArea);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+        }
+
+    </script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
