@@ -47,6 +47,57 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+
+        var tasksArr = [];
+
+        setDataInTable();
+
+        function setDataInTable(){
+            let tbl = document.getElementById("userTasks");
+                for (let index = 0; index < 3; index++) {
+                    // const element = arr[index];
+                    let row = tbl.insertRow(-1);
+                    
+                    for (let colIndex = 0; colIndex < 9; colIndex++) {
+                        var cell = row.insertCell(-1);
+                        switch (colIndex) {
+                            case 0:
+                                cell.innerHTML = "1";
+                                break;
+                            case 1:
+                                cell.innerHTML = "2";
+                                break;
+                            case 2:
+                                cell.innerHTML = "3";
+                                break;
+                            case 3:
+                                cell.innerHTML = "4";
+                                break;
+                            case 4:
+                                cell.innerHTML = "5";
+                                break;
+                            case 5:
+                                cell.innerHTML = "6";
+                                break;
+                            case 6:
+                                cell.innerHTML = "7";
+                                break;
+                            case 7:
+                                cell.innerHTML = "8";
+                                break;
+                            case 8:
+                                cell.innerHTML = "9";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+        }
+
+    </script>
+
     <script src="main.js"></script>
 </body>
 
