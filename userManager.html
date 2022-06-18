@@ -7,9 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="homepage1.css" />
 </head>
 
 <body>
+    <header class="home-container">
+        <div class="gun">
+          <div class="headerdiv1">
+            <img src="images/output-onlinepngtools.png" alt="Logo Image" class="headerlogo" height="96px" width="auto">
+          </div>
+          <div class="headerdiv2">
+            <a href="index.html">
+              <h1 class="logo"> <span class="text-primary"><!--<i class="fab fa-btc"></i>--> Task</span>Manager </h1>
+            </a>
+          </div>
+        </div>
+       
+          <div class="navbar">
+    
+            <ul>
+              <a href="#">
+                <li> Home </li>
+              </a>
+              <a>
+                <li> About Us</li>
+              </a>
+              <a>
+                <li> Contact Us</li>
+              </a>
+              <a>
+                <li> Login </li>
+              </a>
+              <a>
+                <li> Register</li>
+              </a>
+          </div>    
+    </header>
     <div id="webappDas" >
         <div id="adminpanel">
             <h1>User Panel</h1>
@@ -18,11 +55,11 @@
             <div  style="margin-top: 50px;"">
                 <table id="userTasks">
                     <thead>
-                        <th>Task ID</th>
-                        <th>Task Name</th>
-                        <th>Task Description</th>
-                        <th>Task start date</th>
-                        <th>Task End date</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>start date</th>
+                        <th>End date</th>
                         <th>Hourly Rate</th>
                         <th>Total hours</th>
                         <th>Status</th>
@@ -49,7 +86,15 @@
 
     <script type="text/javascript">
 
-        var tasksArr = [];
+
+        task1 = {taskID: 1, taskName: "Scripting", taskDesc: "Lets make script for this process", taskStrtDt: "2022-05-12",
+         taskEndDt: "2022-07-12", hrRate: 17, totalHr: 10, status: true, hrWork: 16}
+        task2 = {taskID: 2, taskName: "Scripting", taskDesc: "Lets make script for this process", taskStrtDt: "2022-05-12",
+         taskEndDt: "2022-07-12", hrRate: 17, totalHr: 10, status: false, hrWork: 16}
+        task3 = {taskID: 3, taskName: "Scripting", taskDesc: "Lets make script for this process", taskStrtDt: "2022-05-12",
+         taskEndDt: "2022-07-12", hrRate: 17, totalHr: 10, status: false, hrWork: 16}
+
+        var tasksArr = [task1, task2, task3];
 
         setDataInTable();
 
@@ -63,25 +108,25 @@
                         var cell = row.insertCell(-1);
                         switch (colIndex) {
                             case 0:
-                                cell.innerHTML = "1";
+                                cell.innerHTML = tasksArr[index].taskID;
                                 break;
                             case 1:
-                                cell.innerHTML = "2";
+                                cell.innerHTML = tasksArr[index].taskName;
                                 break;
                             case 2:
-                                cell.innerHTML = "3";
+                                cell.innerHTML = tasksArr[index].taskDesc;
                                 break;
                             case 3:
-                                cell.innerHTML = "4";
+                                cell.innerHTML = tasksArr[index].taskStrtDt;
                                 break;
                             case 4:
-                                cell.innerHTML = "5";
+                                cell.innerHTML = tasksArr[index].taskEndDt;
                                 break;
                             case 5:
-                                cell.innerHTML = "6";
+                                cell.innerHTML = tasksArr[index].hrRate;
                                 break;
                             case 6:
-                                cell.innerHTML = "7";
+                                cell.innerHTML = tasksArr[index].totalHr;
                                 break;
                             case 7:
 
@@ -90,6 +135,7 @@
                                 checkbox.name = "name";
                                 checkbox.value = "value";
                                 checkbox.id = "id";
+                                checkbox.checked = tasksArr[index].status;
                                 cell.appendChild(checkbox);
                                 break;
                             case 8:
@@ -109,6 +155,17 @@
     </script>
 
     <script src="main.js"></script>
+    <footer>
+        <div class="social">
+          <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+          <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+        </div>
+        <p class="footer-content">
+          &copy; Copyright 2022. All Rights reserved - Vikings MADT
+        </p>
+      </footer>
 </body>
 
 </html>
