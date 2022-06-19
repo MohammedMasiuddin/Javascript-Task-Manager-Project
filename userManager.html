@@ -84,6 +84,44 @@
         </div>
     </div>
 
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js'
+
+      // Add Firebase products that you want to use
+      import  { getDatabase, ref, child, get }  from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js'
+
+      const firebaseConfig = {
+          apiKey: "AIzaSyDKBJpKaA6A9CnKaqt5f91O8rJalQooofg",
+          authDomain: "jstaskmanager.firebaseapp.com",
+          projectId: "jstaskmanager",
+          storageBucket: "jstaskmanager.appspot.com",
+          messagingSenderId: "103834274996",
+          appId: "1:103834274996:web:12771f2555b2386f7fdbe1",
+          databaseUrl: "https://jstaskmanager-default-rtdb.firebaseio.com/",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase();
+      const dbRef = ref(getDatabase());
+
+      getMyTasks();
+
+      function getMyTasks(){
+        get(child(dbRef, 'tasks')).then((snapshot) => {
+          if (snapshot.exists()) {
+            console.log(snapshot.val());
+          } else {
+            console.log("No data available");
+          }
+        }).catch((error) => {
+          console.error(error);
+        });
+      }
+      
+
+  </script>
+
     <script type="text/javascript">
 
 
@@ -152,9 +190,16 @@
                 }
         }
 
+        getUserTasks();
+
+        function getUserTasks() {
+            
+        }
+
     </script>
 
     <script src="main.js"></script>
+    <script src="user.js"></script>
     <footer>
         <div class="social">
           <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
