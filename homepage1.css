@@ -273,8 +273,43 @@ h1 {
     margin-left: 10px;
 } */
 
-footer p {
-    /* color: #fff; */
+/*Table css*/
+#userTasks,
+th,
+td {
+    margin: auto;
+    border: 3px solid #E9D5CA;
+    border-collapse: collapse;
+    text-align: justify;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+th {
+    color: #E9D5CA;
+    background-color: #4D4C7D;
+}
+
+td {
+    color: #363062;
+}
+
+/*Page Heading*/
+#pageHeading {
+    color: #363062;
+}
+
+#userpanel {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#userpanel h1 {
+    border-bottom: 4px solid #E9D5CA;
+    margin: unset;
+    padding: 1rem 0px;
 }
 
 
