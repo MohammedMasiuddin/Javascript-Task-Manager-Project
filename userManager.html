@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
   <title>Task Manager</title>
@@ -15,21 +15,23 @@
 </head>
 
 <body>
-    <header class="home-container">
-        <div class="gun">
-          <div class="headerdiv1">
-            <img src="images/output-onlinepngtools.png" alt="Logo Image" class="headerlogo" height="96px" width="auto">
-          </div>
-          <div class="headerdiv2">
-            <a href="index.html">
-              <h1 class="logo"> <span class="text-primary"><!--<i class="fab fa-btc"></i>--> Task</span>Manager </h1>
-            </a>
-          </div>
-        </div>
-       
-          <div class="navbar">
-    
-            <!-- <ul>
+  <header class="home-container">
+    <div class="gun">
+      <div class="headerdiv1">
+        <img src="images/output-onlinepngtools.png" alt="Logo Image" class="headerlogo" height="96px" width="auto">
+      </div>
+      <div class="headerdiv2">
+        <a href="index.html">
+          <h1 class="logo"> <span class="text-primary">
+              <!--<i class="fab fa-btc"></i>--> Task
+            </span>Manager </h1>
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar">
+
+      <!-- <ul>
               <a href="#">
                 <li> Home </li>
               </a>
@@ -45,28 +47,29 @@
               <a>
                 <li> Register</li>
               </a> -->
-          </div>    
-    </header>
-    <div id="webappDas" >
-        <div id="userpanel">
-            <h1 id="pageHeading">User Panel</h1>
-            </div>
-            
-            <div  style="margin-top: 50px;">
-                <table id="userTasks">
-                    <thead>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>start date</th>
-                        <th>End date</th>
-                        <th>Hourly Rate</th>
-                        <th>Total hours</th>
-                        <th>Status</th>
-                        <th>Hours Worked</th>
-                    </thead>
-                    <tbody>
-                        <!-- <tr>
+    </div>
+  </header>
+  <div id="webappDas">
+    <div id="userpanel">
+      <h1 id="pageHeading">User Panel</h1>
+    </div>
+
+    <div style="margin-top: 50px;">
+      <table id="userTasks">
+        <thead>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>start date</th>
+          <th>End date</th>
+          <th>Hourly Rate</th>
+          <th>Total hours</th>
+          <th>Status</th>
+          <th>Hours Worked</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <!-- <tr>
                             <td>1</td>
                             <td>Task1</td>
                             <td> Description</td>
@@ -77,84 +80,172 @@
                             <td> Description</td>
                             <td>08 june </td>
                         </tr> -->
-                    </tbody>
-                    
-                </table>
-            </div>
-        </div>
+        </tbody>
+
+      </table>
     </div>
+  </div>
+  </div>
 
-    <script type="module">
-      
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js'
+  <script type="module">
 
-      // Add Firebase products that you want to use
-      import  { getDatabase, ref, child, get, push, update }  from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js'
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js'
 
-      const firebaseConfig = {
-          apiKey: "AIzaSyDKBJpKaA6A9CnKaqt5f91O8rJalQooofg",
-          authDomain: "jstaskmanager.firebaseapp.com",
-          projectId: "jstaskmanager",
-          storageBucket: "jstaskmanager.appspot.com",
-          messagingSenderId: "103834274996",
-          appId: "1:103834274996:web:12771f2555b2386f7fdbe1",
-          databaseUrl: "https://jstaskmanager-default-rtdb.firebaseio.com/",
-      };
+    // Add Firebase products that you want to use
+    import { getDatabase, ref, child, get, push, update } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js'
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const database = getDatabase();
-      const dbRef = ref(getDatabase());
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKBJpKaA6A9CnKaqt5f91O8rJalQooofg",
+      authDomain: "jstaskmanager.firebaseapp.com",
+      projectId: "jstaskmanager",
+      storageBucket: "jstaskmanager.appspot.com",
+      messagingSenderId: "103834274996",
+      appId: "1:103834274996:web:12771f2555b2386f7fdbe1",
+      databaseUrl: "https://jstaskmanager-default-rtdb.firebaseio.com/",
+    };
 
-      getMyTasks();
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase();
+    const dbRef = ref(getDatabase());
 
-      function getMyTasks(){
-        get(child(dbRef, 'tasks')).then((snapshot) => {
-          if (snapshot.exists()) {
-            let arrResults = snapshot.val();
-            for (let index = 0; index < arrResults.length; index++) {
-              const element = arrResults[index];
-              let task = new Object();
-              task.name = element.name;
-              task.description = element.description;
-              task.endDate = element.endDate;
-              task.hourlyRate = element.hourlyRate;
-              task.id = element.id;
-              task.startDate = element.startDate;
-              task.status = element.status;
-              task.totalHours = element.totalHours;
-              allTasksArr.push(task);
-            }
-            setDataInTable();
-          } else {
-            console.log("No data available");
+    getMyTasks();
+
+    function getMyTasks() {
+      get(child(dbRef, 'tasks')).then((snapshot) => {
+        if (snapshot.exists()) {
+          let arrResults = snapshot.val();
+          for (let index = 0; index < arrResults.length; index++) {
+            const element = arrResults[index];
+            let task = new Object();
+            task.name = element.name;
+            task.description = element.description;
+            task.endDate = element.endDate;
+            task.hourlyRate = element.hourlyRate;
+            task.id = element.id;
+            task.startDate = element.startDate;
+            task.status = element.status;
+            task.totalHours = element.totalHours;
+            allTasksArr.push(task);
           }
-        }).catch((error) => {
-          console.error(error);
-        });
-      }
+          setDataInTable();
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
 
-      function updateTaskStatus(isDone, taskId){
-        let statusTxt = isDone ? "Completed" : "In Progress";
-        update(child(dbRef, 'tasks/' + taskId), {"status":statusTxt});
+    function updateTaskStatus(isDone, taskId) {
+      let statusTxt = isDone ? "Completed" : "In Progress";
+      update(child(dbRef, 'tasks/' + taskId), { "status": statusTxt });
+    }
+
+    function updateTaskHrs(taskId, newHrs){
+      update(child(dbRef,'tasks/' + taskId), {"totalHours":newHrs});
+    }
+
+    var allTasksArr = [];
+
+    function setDataInTable() {
+      let tbl = document.getElementById("userTasks");
+      for (let index = 0; index < allTasksArr.length; index++) {
+        const element = allTasksArr[index];
+        let row = tbl.insertRow(-1);
+
+        for (let colIndex = 0; colIndex < 10; colIndex++) {
+          var cell = row.insertCell(-1);
+          switch (colIndex) {
+            case 0:
+              cell.innerHTML = element.id;
+              break;
+            case 1:
+              cell.innerHTML = element.name;
+              break;
+            case 2:
+              cell.innerHTML = element.description;
+              break;
+            case 3:
+              let startDate = getDisplayableDateFromTimestamp(element.startDate);
+              cell.innerHTML = startDate.includes("NaN") ? "" : startDate
+              break;
+            case 4:
+              let endDate = getDisplayableDateFromTimestamp(element.endDate);
+              cell.innerHTML = endDate.includes("NaN") ? "" : endDate
+              break;
+            case 5:
+              cell.innerHTML = element.hourlyRate;
+              break;
+            case 6:
+              cell.innerHTML = element.totalHours;
+              cell.id = 'cell' + element.id;
+              break;
+            case 7:
+              var checkbox = document.createElement('input');
+              checkbox.type = "checkbox";
+              checkbox.name = "name";
+              checkbox.value = "value";
+              checkbox.id = "checkBox" + element.id;
+              checkbox.onclick = function () {
+                // set that this task is completed in db
+                updateTaskStatus(checkbox.checked ? true : false, element.id)
+              };
+              if (element.status == "Completed") {
+                checkbox.checked = true;
+              } else {
+                checkbox.checked = false;
+              }
+              cell.appendChild(checkbox);
+              break;
+            case 8:
+              var txtArea = document.createElement('input');
+              txtArea.type = "textarea";
+              txtArea.name = "hrsWorked";
+              txtArea.id = "txt" + element.id;
+              cell.appendChild(txtArea);
+              break;
+            case 9:
+              const btn = document.createElement("button");
+              btn.innerHTML = "Add";
+              btn.id = 'btn' + element.id;
+              btn.onclick = function(){
+                var existingHrs = element.totalHours;
+                let txt = document.getElementById("txt" + element.id);
+                let addedTxt = txt.value;
+                existingHrs += parseInt(addedTxt,10);
+                let newHrs = existingHrs;
+                updateTaskHrs(element.id,newHrs);
+                let cell = document.getElementById("cell" + element.id);
+                cell.innerHTML = newHrs;
+              };
+              cell.appendChild(btn);
+              break;
+            default:
+              break;
+          }
+        }
       }
-      
+    }
+
+    function getDisplayableDateFromTimestamp(param) {
+      var date = new Date(param);
+      return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+    }
+
 
   </script>
-
-    <script type="text/javascript" src="user.js"></script>
-  
-    <footer>
-        <div class="social">
-          <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-          <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
-          <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
-          <a href="https://www.linkedin.com/in/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-        </div>
-        <p class="footer-content">
-          &copy; Copyright 2022. All Rights reserved - Vikings MADT
-        </p>
-      </footer>
+  <footer>
+    <div class="social">
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+      <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+      <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+    </div>
+    <p class="footer-content">
+      &copy; Copyright 2022. All Rights reserved - Vikings MADT
+    </p>
+  </footer>
 </body>
 
 </html>
