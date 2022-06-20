@@ -136,7 +136,7 @@
 
       function updateTaskStatus(isDone, taskId){
         let statusTxt = isDone ? "Completed" : "In Progress";
-        dbRef.ref('-tasks/-'+taskId).update({status:statusTxt});
+        update(child(dbRef, 'tasks/' + taskId), {"status":statusTxt});
       }
       
 
