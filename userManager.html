@@ -134,6 +134,11 @@
           console.error(error);
         });
       }
+
+      function updateTaskStatus(isDone, taskId){
+        let statusTxt = isDone ? "Completed" : "In Progress";
+        
+      }
       
 
   </script>
@@ -160,10 +165,12 @@
                                 cell.innerHTML = element.description;
                                 break;
                             case 3:
-                                cell.innerHTML = element.startDate;
+                                let startDate = getDisplayableDateFromTimestamp(element.startDate);
+                                cell.innerHTML = startDate.includes("NaN") ? "" : startDate
                                 break;
                             case 4:
-                                cell.innerHTML = element.endDate;
+                                let endDate = getDisplayableDateFromTimestamp(element.endDate);
+                                cell.innerHTML = endDate.includes("NaN") ? "" : endDate
                                 break;
                             case 5:
                                 cell.innerHTML = element.hourlyRate;
@@ -177,6 +184,9 @@
                                 checkbox.name = "name";
                                 checkbox.value = "value";
                                 checkbox.id = "checkBox" + element.id;
+                                checkbox.onclick = function(){
+                                  // set that this task is completed in db
+                                };
                                 if (element.status == "Completed") {
                                   checkbox.checked = true;
                                 } else {
@@ -198,9 +208,12 @@
                 }
         }
 
-    </script>
+        function getDisplayableDateFromTimestamp(param){
+          var date = new Date(param);
+          return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        }
 
-    <!-- <script src="main.js"></script> -->
+    </script>
   
     <footer>
         <div class="social">
