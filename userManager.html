@@ -84,7 +84,9 @@
         </div>
     </div>
 
+    <!-- <script type="text/javascript" src="user.js"></script> -->
     <script type="module">
+      
       import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js'
 
       // Add Firebase products that you want to use
@@ -110,7 +112,21 @@
       function getMyTasks(){
         get(child(dbRef, 'tasks')).then((snapshot) => {
           if (snapshot.exists()) {
-            console.log(snapshot.val());
+            let arrResults = snapshot.val();
+            for (let index = 0; index < arrResults.length; index++) {
+              const element = arrResults[index];
+              let task = new Object();
+              task.name = element.name;
+              task.description = element.description;
+              task.endDate = element.endDate;
+              task.hourlyRate = element.hourlyRate;
+              task.id = element.id;
+              task.startDate = element.startDate;
+              task.status = element.status;
+              task.totalHours = element.totalHours;
+              allTasksArr.push(task);
+            }
+            setDataInTable();
           } else {
             console.log("No data available");
           }
@@ -122,65 +138,57 @@
 
   </script>
 
-    <script type="text/javascript">
-
-
-        task1 = {taskID: 1, taskName: "Scripting", taskDesc: "Lets make script for this process", taskStrtDt: "2022-05-12",
-         taskEndDt: "2022-07-12", hrRate: 17, totalHr: 10, status: true, hrWork: 16}
-        task2 = {taskID: 2, taskName: "Scripting", taskDesc: "Lets make script for this process", taskStrtDt: "2022-05-12",
-         taskEndDt: "2022-07-12", hrRate: 17, totalHr: 10, status: false, hrWork: 16}
-        task3 = {taskID: 3, taskName: "Scripting", taskDesc: "Lets make script for this process", taskStrtDt: "2022-05-12",
-         taskEndDt: "2022-07-12", hrRate: 17, totalHr: 10, status: false, hrWork: 16}
-
-        var tasksArr = [task1, task2, task3];
-
-        setDataInTable();
+    <script type="text/javascript">     
+        var allTasksArr = [];
 
         function setDataInTable(){
             let tbl = document.getElementById("userTasks");
-                for (let index = 0; index < 3; index++) {
-                    // const element = arr[index];
+                for (let index = 0; index < allTasksArr.length; index++) {
+                    const element = allTasksArr[index];
                     let row = tbl.insertRow(-1);
                     
                     for (let colIndex = 0; colIndex < 9; colIndex++) {
                         var cell = row.insertCell(-1);
                         switch (colIndex) {
                             case 0:
-                                cell.innerHTML = tasksArr[index].taskID;
+                                cell.innerHTML = element.id;
                                 break;
                             case 1:
-                                cell.innerHTML = tasksArr[index].taskName;
+                                cell.innerHTML = element.name;
                                 break;
                             case 2:
-                                cell.innerHTML = tasksArr[index].taskDesc;
+                                cell.innerHTML = element.description;
                                 break;
                             case 3:
-                                cell.innerHTML = tasksArr[index].taskStrtDt;
+                                cell.innerHTML = element.startDate;
                                 break;
                             case 4:
-                                cell.innerHTML = tasksArr[index].taskEndDt;
+                                cell.innerHTML = element.endDate;
                                 break;
                             case 5:
-                                cell.innerHTML = tasksArr[index].hrRate;
+                                cell.innerHTML = element.hourlyRate;
                                 break;
                             case 6:
-                                cell.innerHTML = tasksArr[index].totalHr;
+                                cell.innerHTML = element.totalHours;
                                 break;
                             case 7:
-
                                 var checkbox = document.createElement('input');
                                 checkbox.type = "checkbox";
                                 checkbox.name = "name";
                                 checkbox.value = "value";
-                                checkbox.id = "id";
-                                checkbox.checked = tasksArr[index].status;
+                                checkbox.id = "checkBox" + element.id;
+                                if (element.status == "Completed") {
+                                  checkbox.checked = true;
+                                } else {
+                                  checkbox.checked = false;
+                                }                                
                                 cell.appendChild(checkbox);
                                 break;
                             case 8:
                                 var txtArea = document.createElement('input');
                                 txtArea.type = "textarea";
                                 txtArea.name = "hrsWorked";
-                                txtArea.id = "id";
+                                txtArea.id = "txt" + element.id;
                                 cell.appendChild(txtArea);
                                 break;
                             default:
@@ -190,16 +198,10 @@
                 }
         }
 
-        getUserTasks();
-
-        function getUserTasks() {
-            
-        }
-
     </script>
 
-    <script src="main.js"></script>
-    <script src="user.js"></script>
+    <!-- <script src="main.js"></script> -->
+  
     <footer>
         <div class="social">
           <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
