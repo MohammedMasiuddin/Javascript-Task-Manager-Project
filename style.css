@@ -4,12 +4,13 @@ body{
 }
 
 #webapp{
-    width:100vw; 
-    height:100vh;
+    min-width:100vw; 
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 
 #div{
@@ -102,7 +103,7 @@ input{
 #taskCreate{
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   margin: auto;
   font-size: 1.5rem;
 }

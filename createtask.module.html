@@ -1,22 +1,50 @@
 <div id="createTask">
-    <h1>Admin Panel</h1>
-    <!-- <button id="createTask">Create Task</button> -->
-    <button id="createTask">Back</button>
+    <div style="
+    height: 100%;
+    background-color: antiquewhite;
+    padding: 20px;
+    margin: 50px;
+    border-radius: 10px;
+    width: 70%;
+    display: flex;
+    max-width: 700px;
+    flex-direction: column;
+    justify-content: space-around;
+    ">
 
-    <div id="taskCreate">
-        <label for="taskid">Task Id</label>
-        <input type="text" name="taskid" id="taskid">
-        <label for="taskName">Task Name</label>
-        <input type="text" name="taskName" id="taskNameid">
-        <label for="taskDes">Task Description</label>
-        <textarea class="input" size="500" name="taskDes" id="taskDescription"></textarea>
-        <label for="taskName">Start Date</label>
-        <input type="date" name="taskName" id="taskNameid">
-        <label for="taskName">End Date</label>
-        <input type="date" name="taskName" id="taskNameid">
+        <h1>Admin Panel</h1>
+        <!-- <button id="createTask">Create Task</button> -->
+        <button id="BacktotaskTable" style="align-self: flex-end;min-width: 100px; ">Back</button>
 
-        <button>Create Task</button>
+        <div id="taskCreate">
+            <label for="taskid">Task Id</label>
+            <input type="text" name="taskid" id="taskid">
+
+            <label for="taskName">Task Name</label>
+            <input type="text" name="taskName" id="taskName" required>
+
+            <label for="taskDes">Task Description</label>
+            <textarea class="input" size="500" style="font-size: 1em;" name="taskDes" id="taskDescription" required></textarea>
+
+            <label for="startDate">Start Date</label>
+            <input type="date" name="startDate" id="startDate">
+
+            <label for="endDate">End Date</label>
+            <input type="date" name="endDate" id="endDate">
+
+            <label for="hourlyRate">Hourly Rate</label>
+            <input type="number" name="hourlyRate" id="hourlyRate">
+
+            <label for="userASsign">Assigned To ( Worker Email )</label>
+            <input type="email" name="userASsign" id="userASsign">
+             
+            <!-- <label for="totalHoursWorked">Hourly Rate</label>
+            <input type="number" name="totalHoursWorked" id="totalHoursWorked"> -->
+
+            <button style="margin-top: 20px;" id="createTaskBtn">Create Task</button>
+        </div>
+
+
     </div>
 
-    
-    </div>
+</div>

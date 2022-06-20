@@ -20,6 +20,8 @@
         import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js'
         // import { firestore } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js'
 
+        import { getDatabase, ref, get, child, set, push,
+             update, query, equalTo, onValue, orderByChild } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js'
         const firebaseConfig = {
             // ...
 
@@ -29,8 +31,8 @@
             projectId: "jstaskmanager",
             storageBucket: "jstaskmanager.appspot.com",
             messagingSenderId: "103834274996",
-            appId: "1:103834274996:web:12771f2555b2386f7fdbe1"
-
+            appId: "1:103834274996:web:12771f2555b2386f7fdbe1",
+            databaseURL: "https://jstaskmanager-default-rtdb.firebaseio.com"
 
 
         };
@@ -38,6 +40,10 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
+        const database = getDatabase()
+        const dbRef = ref(database);
+
+
 
         auth.onAuthStateChanged(function (user) {
             if (user) {
@@ -51,6 +57,18 @@
             window._firebase = {
                 app: app,
                 auth: auth,
+                database: database,
+                dbRef: dbRef,
+                get: get,
+                ref: ref,
+                set: set,
+                push: push,
+                query: query,
+                update: update,
+                equalTo: equalTo,
+                orderByChild: orderByChild,
+                onValue: onValue,
+                child: child,
                 signInWithEmailAndPassword: signInWithEmailAndPassword
             }
         }
